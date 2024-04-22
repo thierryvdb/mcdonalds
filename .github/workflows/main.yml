@@ -21,3 +21,8 @@ jobs:
       - name: Obter variável BANCO do ambiente de produção
         id: obter-banco
         run: echo "BANCO=${{ secrets.BANCO }}" >> $GITHUB_ENV
+
+      - name: Verificar valores das variáveis
+        run: |
+          echo "O valor da variável PASSWORD é $PASSWORD"
+          echo "O valor da variável BANCO é $BANCO"
