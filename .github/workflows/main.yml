@@ -14,4 +14,4 @@ jobs:
       - name: Verificar valores das variáveis
         run: |
           echo "O valor da variável PASSWORD é ${{ secrets.PASSWORD }} "
-          echo "O valor da variável BANCO é ${{ BANCO }}"
+          echo "O valor da variável BANCO é ${{ secrets.BANCO }}"
