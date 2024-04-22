@@ -10,18 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: producao
-    outputs:
-      password: ${{ steps.obter-password.outputs.password }}
-      banco: ${{ steps.obter-banco.outputs.banco }}
     steps:
-      - name: Obter variável PASSWORD do ambiente de produção
-        id: obter-password
-        run: echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
-      
-      - name: Obter variável BANCO do ambiente de produção
-        id: obter-banco
-        run: echo "BANCO=${{ BANCO }}" >> $GITHUB_ENV
-
       - name: Verificar valores das variáveis
         run: |
           echo "O valor da variável PASSWORD é $PASSWORD"
