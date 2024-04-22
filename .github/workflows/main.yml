@@ -1,0 +1,23 @@
+name: Obter Variáveis do Ambiente de Produção
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  obter-variaveis:
+    runs-on: ubuntu-latest
+    environment: 
+      name: producao
+    outputs:
+      password: ${{ steps.obter-password.outputs.password }}
+      banco: ${{ steps.obter-banco.outputs.banco }}
+    steps:
+      - name: Obter variável PASSWORD do ambiente de produção
+        id: obter-password
+        run: echo "::set-output name=password::${{ secrets.PASSWORD }}"
+      
+      - name: Obter variável BANCO do ambiente de produção
+        id: obter-banco
+        run: echo "::set-output name=banco::${{ secrets.BANCO }}"
