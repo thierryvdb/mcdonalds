@@ -16,8 +16,8 @@ jobs:
     steps:
       - name: Obter variável PASSWORD do ambiente de produção
         id: obter-password
-        run: echo "PASSWORD=${{ secrets.PRODUCAO_PASSWORD }}" >> $GITHUB_ENV
+        run: echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       
       - name: Obter variável BANCO do ambiente de produção
         id: obter-banco
-        run: echo "BANCO=${{ secrets.PRODUCAO_BANCO }}" >> $GITHUB_ENV
+        run: echo "BANCO=${{ secrets.BANCO }}" >> $GITHUB_ENV
