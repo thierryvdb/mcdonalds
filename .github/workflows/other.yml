@@ -5,7 +5,7 @@ on:
 
 jobs:
   criar-ficheiro:
-    runs-on: ckpatm124
+    runs-on: ubuntu-latest
     environment: produção
     steps:
       - name: Obter Repositório
