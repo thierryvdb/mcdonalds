@@ -1,0 +1,24 @@
+name: Criar Ficheiro
+
+on:
+  workflow_dispatch:
+
+jobs:
+  criar-ficheiro:
+    runs-on: ckpatm124
+    environment: produção
+    steps:
+      - name: Obter Repositório
+        uses: actions/checkout@v4
+
+      - name: Criar Ficheiro
+        run: |
+          echo "FILENET_USERNAME=${{ secrets.FILENET_USERNAME }}" > file_teste.txt
+          echo "TOKEN=${{ secrets.TOKEN }}" >> file_teste.txt
+        # Upload file_teste.txt as an artifact
+      - name: Upload Artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: file_teste
+          path: file_teste.txt
