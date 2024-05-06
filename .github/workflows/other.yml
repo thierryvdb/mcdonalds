@@ -1,28 +1,28 @@
-name: Criar Ficheiro
-
+name: Criar Arquivo
 on:
   workflow_dispatch:
 
 jobs:
-  criar-ficheiro:
+  criar-arquivo:
     runs-on: ubuntu-latest
     environment: produção
     steps:
       - name: Obter Repositório
         uses: actions/checkout@v4
 
-      - name: Criar Ficheiro
+      - name: Criar Arquivo
         run: |
           echo "FILENET_USERNAME=${{ secrets.FILENET_USERNAME }}" > file_teste.txt
           echo "TOKEN=${{ secrets.TOKEN }}" >> file_teste.txt
+
       - name: Upload Artifacts
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: file_teste
+          name: file_artifact
           path: file_teste.txt
 
       - name: Output to Summary
         run: |
-          echo "O FILENET_USERNAME Utilizado foi :  ${{ secrets.FILENET_USERNAME }}" >> GITHUB_STEP_SUMMARY
-          echo "O Token utilizado foi : ${{ secrets.TOKEN }}">> GITHUB_STEP_SUMMARY
+          echo "O FILENET_USERNAME Utilizado foi: ${{ secrets.FILENET_USERNAME }}" >> GITHUB_STEP_SUMMARY
+          echo "O Token utilizado foi: ${{ secrets.TOKEN }}" >> GITHUB_STEP_SUMMARY
