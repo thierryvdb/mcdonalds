@@ -24,5 +24,5 @@ jobs:
 
       - name: Output to Summary
         run: |
-          echo "O FILENET_USERNAME Utilizado foi: ${{ secrets.FILENET_USERNAME }}" >> GITHUB_STEP_SUMMARY
-          echo "O Token utilizado foi: ${{ secrets.TOKEN }}" >> GITHUB_STEP_SUMMARY
+          echo "O FILENET_USERNAME Utilizado foi: ${{ secrets.FILENET_USERNAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "O Token utilizado foi: ${{ secrets.TOKEN }}" >> $GITHUB_STEP_SUMMARY
